@@ -112,10 +112,15 @@ public class LoginHandler implements PacketHandler {
 			Position position = new Position(0, 0, 0, 0, 0, false, Collections.emptySet(), 0);
 
 			// Welcome message after teleport
-			channel.writeAndFlush(position).addListener(pos -> {
-				Chat chat = new Chat(server.getWelcomeMessage());
-				channel.writeAndFlush(chat);
-			});
+			if(server.isJoinMessage()) {
+				channel.writeAndFlush(position).addListener(pos -> {
+					Chat chat = new Chat(server.getWelcomeMessage());
+					channel.writeAndFlush(chat);
+				});
+			}  else {
+				channel.writeAndFlush(position);
+			}
+
 
 			server.registerKeepAlive(this.netManager);
 		});
