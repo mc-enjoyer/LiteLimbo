@@ -23,6 +23,7 @@ public final class Start {
 				liteLimbo.welcomeMessage(ColorConverter.convert(config.getProperty("welcome.message")));
 				liteLimbo.motdMessage(ColorConverter.convert(config.getProperty("motd.message")));
 				liteLimbo.onlineMode(Boolean.parseBoolean(config.getProperty("online.mode")));
+				liteLimbo.joinMessage(Boolean.parseBoolean(config.getProperty("join.message")));
 				port = Integer.parseInt(config.getProperty("server.port"));
 			} catch (Exception e) {
 				LiteLimbo.LOGGER.error("Could not read config file!");

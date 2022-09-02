@@ -37,6 +37,7 @@ public class LiteLimbo extends Connection {
 	private String welcomeMessage;
 	private String motdMessage;
 	private boolean onlineMode;
+	private boolean joinMessage;
 
 	public LiteLimbo() {
 		PacketRegistry.init();
@@ -145,6 +146,11 @@ public class LiteLimbo extends Connection {
 
 	public LiteLimbo onlineMode(boolean onlineMode) {
 		this.onlineMode = onlineMode;
+		return this;
+	}
+
+	public LiteLimbo joinMessage(boolean joinMessage) {
+		this.joinMessage = joinMessage;
 		return this;
 	}
 }
